@@ -60,10 +60,6 @@ cd Portfolio
 npm install
 ```
 
-3. Create a `.env.local` file in the root directory and add your MongoDB connection string:
-```env
-MONGODB_URI=your_mongodb_connection_string
-```
 
 ## Development
 
