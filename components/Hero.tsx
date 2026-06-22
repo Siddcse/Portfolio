@@ -14,13 +14,14 @@ export default function Hero() {
   const currentRole = roles[roleIndex];
 
   useEffect(() => {
-    let pauseTimeout: ReturnType<typeof window.setTimeout> | null = null;
+    let pauseTimeout: ReturnType<typeof setTimeout> | null = null;
+    let typing: ReturnType<typeof setInterval> | null = null;
 
-    const typing = window.setInterval(() => {
+    typing = setInterval(() => {
       setVisibleChars((count) => {
         if (count >= currentRole.length) {
-          window.clearInterval(typing);
-          pauseTimeout = window.setTimeout(() => {
+          if (typing) clearInterval(typing);
+          pauseTimeout = setTimeout(() => {
             setVisibleChars(0);
             setRoleIndex((index) => (index + 1) % roles.length);
           }, 1200);
@@ -31,8 +32,8 @@ export default function Hero() {
     }, 70);
 
     return () => {
-      window.clearInterval(typing);
-      if (pauseTimeout !== null) window.clearTimeout(pauseTimeout);
+      if (typing) clearInterval(typing);
+      if (pauseTimeout !== null) clearTimeout(pauseTimeout);
     };
   }, [currentRole]);
 
