@@ -68,7 +68,7 @@ Run the development server:
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the portfolio.
+Open (https://portfolio-beige-iota-leb5f65q05.vercel.app) in your browser to see the portfolio.
 
 ## Building for Production
 
