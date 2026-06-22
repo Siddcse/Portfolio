@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand: #30051a;
+  --blush: #ec4899;
+  --lavender: #7c3aed;
+  --ink: #171016;
+  --muted: #6f6270;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: #fff;
+  color: var(--ink);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+.dark body {
+  background: #12060d;
+  color: #fff7fb;
+}
+
+::selection {
+  background: rgba(48, 5, 26, 0.16);
+}
+
+.font-heading {
+  font-family: var(--font-space-grotesk), system-ui, sans-serif;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.marquee-track {
+  animation: marquee 26s linear infinite;
+}
+
+.marquee-track-reverse {
+  animation: marquee-reverse 28s linear infinite;
+}
+
+.marquee-group:hover .marquee-track,
+.marquee-group:hover .marquee-track-reverse {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
